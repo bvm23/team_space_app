@@ -1,0 +1,10 @@
+<div class="container">
+  <p>
+    <button>add</button>
+  </p>
+  <section class="members-list">
+    @for (member of memebers; track member.id) {
+    <app-team-member [data]="member" [(menuOpenedId)]="openedMenuIndex" />
+    }
+  </section>
+</div>

@@ -1,0 +1,30 @@
+.container {
+  width: 94%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  justify-self: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.container p {
+  width: 100%;
+  padding: 0.7rem;
+  display: flex;
+}
+
+.container p button {
+  margin-left: auto;
+}
+
+.members-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  width: 70%;
+  padding: 1rem;
+  justify-self: center;
+  overflow: hidden;
+}
