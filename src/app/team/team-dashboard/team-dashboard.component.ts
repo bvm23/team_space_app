@@ -1,15 +1,16 @@
 import { Component } from '@angular/core';
 import { TeamMemberComponent } from '../team-member/team-member.component';
+import { NewMemberComponent } from '../new-member/new-member.component';
 
 @Component({
   selector: 'app-team-dashboard',
-  imports: [TeamMemberComponent],
+  imports: [TeamMemberComponent, NewMemberComponent],
   templateUrl: './team-dashboard.component.html',
   styleUrl: './team-dashboard.component.css',
 })
 export class TeamDashboardComponent {
   openedMenuIndex!: number;
-
+  addMemberFormOpen = false;
   memebers = [
     {
       id: 1,
@@ -54,4 +55,12 @@ export class TeamDashboardComponent {
       image: 'f-avatar.svg',
     },
   ];
+
+  openForm() {
+    this.addMemberFormOpen = true;
+  }
+
+  closeForm() {
+    this.addMemberFormOpen = false;
+  }
 }

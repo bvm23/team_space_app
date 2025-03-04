@@ -1,0 +1,59 @@
+<div class="backdrop" (click)="onClose()"></div>
+<dialog open>
+  <p class="top">
+    <button class="close-btn" (click)="onClose()">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        height="32px"
+        viewBox="0 -960 960 960"
+        width="32px"
+        fill="#000"
+      >
+        <path
+          d="m251.33-204.67-46.66-46.66L433.33-480 204.67-708.67l46.66-46.66L480-526.67l228.67-228.66 46.66 46.66L526.67-480l228.66 228.67-46.66 46.66L480-433.33 251.33-204.67Z"
+        />
+      </svg>
+    </button>
+  </p>
+  <section class="middle">
+    <h1>Add Members to team</h1>
+    <h4>Invite members by email</h4>
+    <form (ngSubmit)="onSubmit()">
+      <p>
+        <input
+          type="text"
+          id="name"
+          placeholder="name"
+          [(ngModel)]="enteredName"
+          name="name"
+        />
+      </p>
+      <p>
+        <input
+          type="text"
+          id="email"
+          placeholder="email"
+          [(ngModel)]="enteredEmail"
+          name="email"
+        />
+      </p>
+      <p class="actions">
+        <button>Save</button>
+      </p>
+    </form>
+  </section>
+  <p class="bottom">
+    <span
+      ><svg
+        xmlns="http://www.w3.org/2000/svg"
+        height="24px"
+        viewBox="0 -960 960 960"
+        width="24px"
+        fill="#666"
+      >
+        <path
+          d="M440-280H280q-83 0-141.5-58.5T80-480q0-83 58.5-141.5T280-680h160v80H280q-50 0-85 35t-35 85q0 50 35 85t85 35h160v80ZM320-440v-80h320v80H320Zm200 160v-80h160q50 0 85-35t35-85q0-50-35-85t-85-35H520v-80h160q83 0 141.5 58.5T880-480q0 83-58.5 141.5T680-280H520Z"
+        /></svg></span
+    >Copy Team Sharable <span>Link</span>
+  </p>
+</dialog>

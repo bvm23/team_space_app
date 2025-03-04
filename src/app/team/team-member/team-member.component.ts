@@ -31,7 +31,7 @@ export class TeamMemberComponent {
   menuOpened = false;
   m: any = [];
 
-  onMenuClick(id: number, event: PointerEvent) {
+  onMenuClick(id: number) {
     this.menuCardPosition = {
       left:
         (

@@ -17,6 +17,13 @@
 
 .container p button {
   margin-left: auto;
+  padding: 0.6rem;
+  border: 0;
+  background-color: #0fa90f;
+  text-align: center;
+  display: flex;
+  border-radius: 50%;
+  cursor: pointer;
 }
 
 .members-list {
