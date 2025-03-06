@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { TeamService } from '../team.service';
 
 @Component({
   selector: 'app-new-member',
@@ -13,11 +14,14 @@ export class NewMemberComponent {
   enteredName = '';
   enteredEmail = '';
 
+  constructor(private teamService: TeamService) {}
+
   onClose() {
     this.close.emit();
   }
 
   onSubmit() {
-    console.log(this.enteredEmail, this.enteredName);
+    this.teamService.addMember(this.enteredEmail, this.enteredEmail);
+    this.onClose();
   }
 }

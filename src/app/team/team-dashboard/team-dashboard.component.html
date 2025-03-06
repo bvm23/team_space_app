@@ -1,5 +1,7 @@
-@if (addMemberFormOpen) {
+@if (isAddingMember) {
 <app-new-member (close)="closeForm()" />
+} @if(isMakingManager){
+<app-new-manager [userId]="selectedMemberId" (close)="closeManagerForm()" />
 }
 
 <div class="container">
@@ -17,8 +19,12 @@
     </button>
   </p>
   <section class="members-list">
-    @for (member of memebers; track member.id) {
-    <app-team-member [data]="member" [(menuOpenedId)]="openedMenuIndex" />
+    @for (member of members; track member.id) {
+    <app-team-member
+      [data]="member"
+      [(selectedMemberId)]="selectedMemberId"
+      (makeManager)="onMakeManager()"
+    />
     }
   </section>
 </div>

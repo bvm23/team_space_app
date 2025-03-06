@@ -6,7 +6,7 @@
   padding: 2rem;
   justify-self: center;
   align-items: center;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 
 .container p {
@@ -33,5 +33,4 @@
   width: 70%;
   padding: 1rem;
   justify-self: center;
-  overflow: hidden;
 }

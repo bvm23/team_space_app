@@ -21,24 +21,34 @@
   border: 1px solid blueviolet;
 }
 
+.info {
+  width: 100%;
+  overflow: hidden;
+}
+
+.info h2 {
+  word-wrap: normal;
+  overflow: hidden;
+}
+
 .info .role {
   font-weight: lighter;
   max-width: fit-content;
   border-radius: 4px;
+  font-size: 1rem;
+  text-transform: capitalize;
 }
 
 .info .admin {
-  padding: 0 4px;
+  padding: 0 6px;
   background-color: #03aa03;
   color: #fff;
-  font-size: 1rem;
 }
 
 .info .manager {
-  padding: 0 4px;
+  padding: 0 6px;
   background-color: #2c6ccc;
   color: #fff;
-  font-size: 1rem;
 }
 
 .menu-btn {

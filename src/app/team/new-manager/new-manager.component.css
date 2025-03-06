@@ -1,0 +1,139 @@
+.backdrop {
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 0;
+  background-color: #7e7c7c;
+  opacity: 0.6;
+}
+
+dialog {
+  background: #fff;
+  position: absolute;
+  width: 40%;
+  margin: auto;
+  top: 5rem;
+  border: 0;
+  display: grid;
+  gap: 12px;
+  z-index: 8;
+}
+
+p {
+  width: 100%;
+  display: flex;
+}
+
+.top {
+  padding: 2rem 2rem 0 2rem;
+}
+
+.close-btn {
+  display: flex;
+  background: none;
+  border: 0;
+  justify-self: right;
+  cursor: pointer;
+  margin-left: auto;
+}
+
+.middle {
+  width: 100%;
+  padding: 0 6rem;
+  display: grid;
+  gap: 0.6rem;
+  margin-bottom: 2rem;
+}
+
+.middle h1 {
+  font-size: 2rem;
+  text-align: left;
+}
+
+.middle p {
+  font-size: 1.2rem;
+  text-align: left;
+}
+
+.middle p span {
+  color: #0da00d;
+  margin-left: 1ch;
+}
+
+form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+form input[type="text"] {
+  width: 100%;
+  padding: 0.8rem;
+  border: 0;
+  border: 1px solid #c4c2c2;
+  border-radius: 8px;
+  font-size: 1.2rem;
+  outline: none;
+}
+
+.list-container {
+  width: 100%;
+  max-height: 16rem;
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+  overflow-y: auto;
+  margin-bottom: 1.4rem;
+}
+
+.member {
+  width: 100%;
+  height: 4rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 1rem;
+  border-bottom: 1px solid #e3e2e2;
+  gap: 2rem;
+  overflow: hidden;
+}
+
+.member input[type="checkbox"] {
+  margin-left: auto;
+  width: 2rem;
+  height: 2rem;
+  accent-color: rgb(40, 224, 40);
+  color: #fff;
+}
+
+.member h3 {
+  width: 100%;
+  word-wrap: normal;
+  overflow: hidden;
+}
+
+.actions {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.actions button {
+  width: 100%;
+  padding: 1rem;
+  font-size: 1.2rem;
+  border: 0;
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+.actions button[type="submit"] {
+  background-color: #000;
+  color: #fff;
+}
+
+.actions button[type="button"] {
+  color: #000;
+  background: transparent;
+}

@@ -1,7 +1,9 @@
 export interface Member {
-  id: number;
+  id: string;
   name: string;
   email: string;
-  role: string;
+  role: Role;
   image: string;
 }
+
+export type Role = 'member' | 'admin' | 'manager';

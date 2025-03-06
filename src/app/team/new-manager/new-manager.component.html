@@ -1,0 +1,53 @@
+<div class="backdrop" (click)="onClose()"></div>
+<dialog open>
+  <p class="top">
+    <button class="close-btn" (click)="onClose()">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        height="32px"
+        viewBox="0 -960 960 960"
+        width="32px"
+        fill="#000"
+      >
+        <path
+          d="m251.33-204.67-46.66-46.66L433.33-480 204.67-708.67l46.66-46.66L480-526.67l228.67-228.66 46.66 46.66L526.67-480l228.66 228.67-46.66 46.66L480-433.33 251.33-204.67Z"
+        />
+      </svg>
+    </button>
+  </p>
+  <section class="middle">
+    <h1>Managing 0 Members</h1>
+    <p>
+      Add or Remove members managed by
+      <span>"{{ user?.name }}"</span>
+    </p>
+    <form (ngSubmit)="onSubmit()">
+      <p>
+        <input
+          type="text"
+          id="search"
+          placeholder="search for 20 members"
+          name="search"
+        />
+      </p>
+      <div class="list-container">
+        @for (member of peopleList; track member.id) {
+        <div class="member">
+          <img [src]="member.image" [alt]="member.name" width="30px" />
+          <h3 [title]="member.name">{{ member.name }}</h3>
+          <input
+            type="checkbox"
+            name="selected"
+            id="selected"
+            [(ngModel)]="member.selected"
+          />
+        </div>
+        }
+      </div>
+      <p class="actions">
+        <button type="submit">Save Changes</button>
+        <button type="button" (click)="onClose()">Cancel</button>
+      </p>
+    </form>
+  </section>
+</dialog>

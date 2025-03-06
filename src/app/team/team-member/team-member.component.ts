@@ -8,7 +8,9 @@ import {
   OnDestroy,
   Output,
 } from '@angular/core';
-import { Member } from './team-member.model';
+import { Member, Role } from './team-member.model';
+import { TeamService } from '../team.service';
+import { NewManagerComponent } from '../new-manager/new-manager.component';
 
 @Component({
   selector: 'app-team-member',
@@ -21,17 +23,17 @@ import { Member } from './team-member.model';
 })
 export class TeamMemberComponent {
   @Input({ required: true }) data!: Member;
-  @Input({ required: true }) menuOpenedId!: number;
-  @Output() menuOpenedIdChange = new EventEmitter<number>();
+  @Input({ required: true }) selectedMemberId!: string;
+  @Output() selectedMemberIdChange = new EventEmitter<string>();
+  @Output() makeManager = new EventEmitter();
 
-  constructor(private el: ElementRef) {}
+  constructor(private el: ElementRef, private teamService: TeamService) {}
 
   menuCardPosition = { left: '0px', top: '0px' };
 
   menuOpened = false;
-  m: any = [];
 
-  onMenuClick(id: number) {
+  onMenuClick() {
     this.menuCardPosition = {
       left:
         (
@@ -51,10 +53,22 @@ export class TeamMemberComponent {
 
   openMenu() {
     this.menuOpened = true;
-    this.menuOpenedIdChange.emit(this.data.id);
+    this.selectedMemberIdChange.emit(this.data.id);
   }
 
   closeMenu() {
     this.menuOpened = false;
+  }
+
+  onRemove() {
+    this.teamService.removeMember(this.data.id);
+  }
+
+  onChangeRole(enteredRole: Role) {
+    this.teamService.changeRole(this.data.id, enteredRole);
+  }
+
+  onMakeManager() {
+    this.makeManager.emit();
   }
 }

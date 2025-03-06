@@ -2,19 +2,21 @@
   <img [src]="data.image" [alt]="data.name" width="80px" height="80px" />
 </p>
 <div class="info">
-  <h2>{{ data.name }}</h2>
+  <h2 [title]="data.name">
+    {{ data.name }}
+  </h2>
   <h3
     [class]="{
       role: true,
-      admin: data.role === 'Admin',
-      manager: data.role === 'Manager'
+      admin: data.role === 'admin',
+      manager: data.role === 'manager'
     }"
   >
     {{ data.role }}
   </h3>
 </div>
 <p class="menu-btn">
-  <button (click)="onMenuClick(data.id)">
+  <button (click)="onMenuClick()">
     <svg
       xmlns="http://www.w3.org/2000/svg"
       height="34px"
@@ -28,7 +30,7 @@
     </svg>
   </button>
 </p>
-@if (menuOpened && menuOpenedId===data.id) {
+@if (menuOpened && selectedMemberId===data.id) {
 <ul
   [style]="{
     left: menuCardPosition.left,
@@ -37,8 +39,8 @@
   class="menu"
   (click)="closeMenu()"
 >
-  <li>Make Admin</li>
-  <li>Make Manager</li>
-  <li>Remove Member</li>
+  <li (click)="onChangeRole('admin')">Make Admin</li>
+  <li (click)="onMakeManager()">Make Manager</li>
+  <li (click)="onRemove()">Remove Member</li>
 </ul>
 }
