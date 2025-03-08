@@ -12,6 +12,7 @@ export class TeamService {
       email: 'polly.norman@example.com',
       role: 'admin',
       image: 'm-avatar.svg',
+      haveManager: false,
     },
     {
       id: '0.5131572592293172',
@@ -19,6 +20,7 @@ export class TeamService {
       email: 'eunice.stevenson@example.com',
       role: 'member',
       image: 'f-avatar.svg',
+      haveManager: false,
     },
     {
       id: '0.5131572595293175',
@@ -26,6 +28,7 @@ export class TeamService {
       email: 'ethan.gibbs@example.com',
       role: 'member',
       image: 'm-avatar.svg',
+      haveManager: false,
     },
     {
       id: '0.5131572595293171',
@@ -33,13 +36,15 @@ export class TeamService {
       email: 'johnny.allison@example.com',
       role: 'member',
       image: 'm-avatar.svg',
+      haveManager: false,
     },
     {
       id: '0.5131572595293178',
       name: 'Kyle Watts',
       email: 'kyle.watts@example.com',
-      role: 'manager',
+      role: 'member',
       image: 'm-avatar.svg',
+      haveManager: false,
     },
     {
       id: '0.5131572595293122',
@@ -47,6 +52,7 @@ export class TeamService {
       email: 'rosa.armstrong@example.com',
       role: 'member',
       image: 'f-avatar.svg',
+      haveManager: false,
     },
   ];
   constructor() {}
@@ -66,6 +72,7 @@ export class TeamService {
       email,
       image: 'm-avatar.svg',
       role: 'member',
+      haveManager: false,
     };
 
     this.members.push(newMember);

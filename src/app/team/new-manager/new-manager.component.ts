@@ -3,8 +3,6 @@ import { TeamService } from '../team.service';
 import { FormsModule } from '@angular/forms';
 import { Member, Role } from '../team-member/team-member.model';
 
-type List = Member & { selected: boolean };
-
 @Component({
   selector: 'app-new-manager',
   imports: [FormsModule],
@@ -15,22 +13,20 @@ export class NewManagerComponent implements OnInit {
   @Input({ required: true }) userId!: string;
   @Output() close = new EventEmitter();
 
-  peopleList: List[] = [];
+  user!: Member;
+  peopleList!: Member[];
 
   constructor(private teamService: TeamService) {}
 
-  get user() {
-    return this.teamService.getMember(this.userId);
-  }
-
   getPeopleList() {
-    const people = this.teamService.getMembers();
-    this.peopleList = people.map((user: Member) => {
-      return {
-        ...user,
-        selected: false,
-      };
-    });
+    this.peopleList = this.teamService
+      .getMembers()
+      .filter((member) => member.id !== this.userId)
+      .filter(
+        (member) =>
+          !member.haveManager ||
+          (member.haveManager && member.manager?.id === this.userId)
+      );
   }
 
   onClose() {
@@ -38,10 +34,24 @@ export class NewManagerComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(this.peopleList);
+    this.setManager();
+    this.onClose();
   }
 
-  ngOnInit(): void {
+  setManager() {
+    this.peopleList = this.peopleList.map((member) => {
+      member.manager = member.haveManager ? this.user : undefined;
+      return member;
+    });
+    console.log(
+      this.peopleList.map((m) => [m.name, m.haveManager, m.manager?.name])
+    );
+
+    this.teamService.changeRole(this.user.id, 'manager');
+  }
+
+  ngOnInit() {
+    this.user = this.teamService.getMember(this.userId)!;
     this.getPeopleList();
   }
 }

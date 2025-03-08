@@ -19,7 +19,7 @@
     <h1>Managing 0 Members</h1>
     <p>
       Add or Remove members managed by
-      <span>"{{ user?.name }}"</span>
+      <span>"{{ user.name }}"</span>
     </p>
     <form (ngSubmit)="onSubmit()">
       <p>
@@ -31,17 +31,18 @@
         />
       </p>
       <div class="list-container">
-        @for (member of peopleList; track member.id) {
+        @for (member of peopleList; track $index) {
         <div class="member">
           <img [src]="member.image" [alt]="member.name" width="30px" />
           <h3 [title]="member.name">{{ member.name }}</h3>
           <input
             type="checkbox"
-            name="selected"
-            id="selected"
-            [(ngModel)]="member.selected"
+            [name]="member.name"
+            [(ngModel)]="member.haveManager"
           />
         </div>
+        }@empty {
+        <h3 style="text-align: center">No more members!!</h3>
         }
       </div>
       <p class="actions">

@@ -81,8 +81,6 @@ form input[type="text"] {
 .list-container {
   width: 100%;
   max-height: 16rem;
-  display: grid;
-  grid-template-rows: 1fr 1fr 1fr 1fr;
   overflow-y: auto;
   margin-bottom: 1.4rem;
 }
