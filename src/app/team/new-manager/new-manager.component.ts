@@ -15,8 +15,14 @@ export class NewManagerComponent implements OnInit {
 
   user!: Member;
   peopleList!: Member[];
+  searchText: string = '';
+  searchResults?: Member[];
 
   constructor(private teamService: TeamService) {}
+
+  get selectedMembersCount() {
+    return this.peopleList.filter((m) => m.haveManager).length;
+  }
 
   getPeopleList() {
     this.peopleList = this.teamService
@@ -26,7 +32,9 @@ export class NewManagerComponent implements OnInit {
         (member) =>
           !member.haveManager ||
           (member.haveManager && member.manager?.id === this.userId)
-      );
+      )
+      .sort((m1, m2) => Number(m2.haveManager) - Number(m1.haveManager));
+    this.searchResults = this.peopleList;
   }
 
   onClose() {
@@ -38,16 +46,22 @@ export class NewManagerComponent implements OnInit {
     this.onClose();
   }
 
+  onSearch() {
+    let searchResult: Member[] = [...this.searchResults!];
+    if (this.searchText) {
+      searchResult = this.searchResults?.filter((member) =>
+        member.name.toLowerCase().includes(this.searchText.toLowerCase())
+      )!;
+    }
+    this.peopleList = searchResult;
+  }
+
   setManager() {
     this.peopleList = this.peopleList.map((member) => {
       member.manager = member.haveManager ? this.user : undefined;
       return member;
     });
-    console.log(
-      this.peopleList.map((m) => [m.name, m.haveManager, m.manager?.name])
-    );
-
-    this.teamService.changeRole(this.user.id, 'manager');
+    this.user.role = 'manager';
   }
 
   ngOnInit() {

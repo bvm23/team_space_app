@@ -4,7 +4,6 @@ export interface Member {
   email: string;
   role: Role;
   image: string;
-  isManaging?: Member[];
   haveManager: boolean;
   manager?: Member;
 }

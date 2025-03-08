@@ -16,7 +16,7 @@
     </button>
   </p>
   <section class="middle">
-    <h1>Managing 0 Members</h1>
+    <h1>Managing {{ selectedMembersCount }} Members</h1>
     <p>
       Add or Remove members managed by
       <span>"{{ user.name }}"</span>
@@ -26,8 +26,10 @@
         <input
           type="text"
           id="search"
-          placeholder="search for 20 members"
+          placeholder="search by name"
           name="search"
+          [(ngModel)]="searchText"
+          (ngModelChange)="onSearch()"
         />
       </p>
       <div class="list-container">

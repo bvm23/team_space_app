@@ -21,7 +21,7 @@ export class NewMemberComponent {
   }
 
   onSubmit() {
-    this.teamService.addMember(this.enteredEmail, this.enteredEmail);
+    this.teamService.addMember(this.enteredName, this.enteredEmail);
     this.onClose();
   }
 }
