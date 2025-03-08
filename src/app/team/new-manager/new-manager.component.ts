@@ -43,10 +43,6 @@ export class NewManagerComponent implements OnInit {
       member.manager = member.haveManager ? this.user : undefined;
       return member;
     });
-    console.log(
-      this.peopleList.map((m) => [m.name, m.haveManager, m.manager?.name])
-    );
-
     this.teamService.changeRole(this.user.id, 'manager');
   }
 
