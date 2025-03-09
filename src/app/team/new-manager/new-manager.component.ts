@@ -13,7 +13,6 @@ export class NewManagerComponent implements OnInit {
   @Input({ required: true }) userId!: string;
   @Output() close = new EventEmitter();
 
-  user!: Member;
   peopleList!: Member[];
   searchText: string = '';
   searchResults?: Member[];
@@ -22,6 +21,10 @@ export class NewManagerComponent implements OnInit {
 
   get selectedMembersCount() {
     return this.peopleList.filter((m) => m.haveManager).length;
+  }
+
+  get user() {
+    return this.teamService.getMember(this.userId)!;
   }
 
   getPeopleList() {
@@ -65,7 +68,6 @@ export class NewManagerComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.user = this.teamService.getMember(this.userId)!;
     this.getPeopleList();
   }
 }

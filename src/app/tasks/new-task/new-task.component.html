@@ -1,0 +1,8 @@
+<div class="backdrop" (click)="onCancel()"></div>
+<dialog open>
+  <form (ngSubmit)="onSubmit()">
+    <input type="text" name="task" id="task" [(ngModel)]="enteredTask" />
+    <button type="submit">save</button>
+    <button type="button" (click)="onCancel()">cancel</button>
+  </form>
+</dialog>

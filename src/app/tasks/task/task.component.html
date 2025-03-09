@@ -1,0 +1,43 @@
+<section>
+  <header>
+    <p>
+      <img [src]="user.image" alt="avatar" width="30px" />
+    </p>
+    <div class="info">
+      <h3>{{ user.name }}</h3>
+      <h5>{{ tasks.length ? tasks.length : 0 }} tasks</h5>
+    </div>
+  </header>
+  <div class="content">
+    <button type="button" (click)="onAdd()"><span>+</span>add task</button>
+    <ul>
+      @for (task of tasks; track task.id) {
+      <li (click)="changeStatus(task.id)">
+        <span
+          [class]="{
+            status: true,
+            completed: task.status === 'completed',
+            inprogress: task.status === 'in-progress'
+          }"
+        ></span>
+        <span class="status-text">{{ task.title }}</span>
+      </li>
+      }@empty {
+      <h3 class="empty-msg">No Tasks🙄</h3>
+      }
+    </ul>
+    <div class="overview">
+      @if(inProgressCount){
+      <p class="inprogress-text">
+        in progress: <span>{{ inProgressCount }}</span>
+      </p>
+      }@if(completedCount){
+      <p class="completed-text">
+        completed: <span>{{ completedCount }}</span>
+      </p>
+      }@if (tasks.length>0 &&!inProgressCount && !completedCount) {
+      <p><span>start working👏</span></p>
+      }
+    </div>
+  </div>
+</section>

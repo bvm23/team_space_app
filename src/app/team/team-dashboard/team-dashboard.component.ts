@@ -30,11 +30,6 @@ export class TeamDashboardComponent {
     this.isAddingMember = false;
   }
 
-  onAddMember(data: { name: string; email: string }) {
-    this.teamService.addMember(data.name, data.email);
-    this.closeForm();
-  }
-
   onMakeManager() {
     this.isMakingManager = true;
   }

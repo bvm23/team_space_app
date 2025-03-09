@@ -1,12 +1,12 @@
 .container {
-  width: 94%;
+  width: 90%;
   height: 100vh;
   display: flex;
   flex-direction: column;
   padding: 2rem;
   justify-self: center;
   align-items: center;
-  /* overflow: hidden; */
+  overflow: hidden;
 }
 
 .container p {

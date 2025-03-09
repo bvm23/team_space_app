@@ -1,0 +1,60 @@
+.backdrop {
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 0;
+  background-color: #afaeae;
+  opacity: 0.5;
+}
+
+dialog {
+  background: #fff;
+  position: fixed;
+  width: 50%;
+  top: 0;
+  margin: auto;
+  border: 0;
+  padding: 1.4rem 1rem;
+  border-bottom-left-radius: 0.6rem;
+  border-bottom-right-radius: 0.6rem;
+}
+
+form {
+  display: grid;
+  grid-template-columns: 6fr 1fr 1fr;
+  place-content: center;
+  gap: 0.6rem;
+}
+
+input[type="text"] {
+  padding: 0.6rem;
+  font-size: 1rem;
+  text-align: left;
+  outline: none;
+  border: 1px #808080 solid;
+  border-radius: 0.4rem;
+  text-decoration: none;
+}
+
+button[type="submit"] {
+  padding: 0.6rem;
+  font-size: 1rem;
+  text-transform: capitalize;
+  border: 0;
+  color: #fff;
+  background-color: #000;
+  border-radius: 0.4rem;
+  cursor: pointer;
+}
+
+button[type="button"] {
+  padding: 0.6rem;
+  font-size: 1rem;
+  text-transform: capitalize;
+  border: 0;
+  color: #000;
+  background: none;
+  border-radius: 0.4rem;
+  cursor: pointer;
+}

@@ -1,3 +1,10 @@
-<main>
+<app-dashboard>
+  @if (mode==="team") {
   <app-team-dashboard />
-</main>
+  }@else{
+  <app-tasks-dashboard />
+  }
+</app-dashboard>
+<button type="button" (click)="changeMode()">
+  {{ mode === "team" ? "🕹️ tasks" : "💼 manage" }}
+</button>

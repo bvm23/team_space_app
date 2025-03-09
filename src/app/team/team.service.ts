@@ -65,16 +65,7 @@ export class TeamService {
     return this.members.find((member) => member.id === id);
   }
 
-  addMember(name: string, email: string) {
-    let newMember: Member = {
-      id: Math.random().toString(),
-      name,
-      email,
-      image: 'm-avatar.svg',
-      role: 'member',
-      haveManager: false,
-    };
-
+  addMember(newMember: Member) {
     this.members.push(newMember);
   }
 
