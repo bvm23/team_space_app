@@ -6,6 +6,6 @@
   <app-task [user]="member" (add)="onStartAddTask($event)" />
   }
 </p>
-@if(!peopleList){
+@if(peopleList.length===0){
 <h1>Add team first 😊</h1>
 }

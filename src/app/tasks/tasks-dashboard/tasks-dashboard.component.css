@@ -10,5 +10,7 @@ p {
 
 h1 {
   font-size: 4rem;
-  justify-self: center;
+  text-transform: capitalize;
+  text-align: center;
+  padding-top: 8rem;
 }

@@ -34,3 +34,25 @@
   padding: 1rem;
   justify-self: center;
 }
+
+.empty-msg {
+  font-size: 4rem;
+  text-transform: capitalize;
+  grid-column: 1 / span 2;
+  text-align: center;
+  padding-top: 10rem;
+}
+
+.load-sample {
+  grid-column: 1 / span 2;
+  width: max-content;
+  margin: auto;
+  text-transform: capitalize;
+  background: none;
+  border: 0;
+  background-color: #0fa90f;
+  padding: 0.5rem 1rem;
+  color: #fff;
+  border-radius: 0.3rem;
+  cursor: pointer;
+}

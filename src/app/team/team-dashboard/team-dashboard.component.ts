@@ -22,6 +22,10 @@ export class TeamDashboardComponent {
     return this.teamService.getMembers();
   }
 
+  loadSampleData() {
+    this.teamService.getMembers('sample');
+  }
+
   openForm() {
     this.isAddingMember = true;
   }

@@ -5,7 +5,9 @@ import { Member, Role } from './team-member/team-member.model';
   providedIn: 'root',
 })
 export class TeamService {
-  private members: Member[] = [
+  private storageId = 'people';
+  private members!: Member[];
+  sampleData: Member[] = [
     {
       id: '0.5131572595293172',
       name: 'Polly Norman',
@@ -55,9 +57,21 @@ export class TeamService {
       haveManager: false,
     },
   ];
-  constructor() {}
 
-  getMembers() {
+  constructor() {
+    const existingData = localStorage.getItem(this.storageId);
+    if (existingData) {
+      this.members = JSON.parse(existingData);
+    } else {
+      this.members = [];
+    }
+  }
+
+  getMembers(data: 'sample' | 'main' = 'main') {
+    if (data === 'sample') {
+      this.members = this.sampleData;
+    }
+    this.save();
     return this.members;
   }
 
@@ -67,10 +81,12 @@ export class TeamService {
 
   addMember(newMember: Member) {
     this.members.push(newMember);
+    this.save();
   }
 
   removeMember(id: string) {
     this.members = this.members.filter((member) => member.id !== id);
+    this.save();
   }
 
   changeRole(id: string, givenRole: Role) {
@@ -79,5 +95,10 @@ export class TeamService {
         member.role = givenRole;
       }
     });
+    this.save();
+  }
+
+  save() {
+    localStorage.setItem(this.storageId, JSON.stringify(this.members));
   }
 }
