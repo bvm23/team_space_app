@@ -27,7 +27,7 @@ export class TeamDashboardComponent {
   }
 
   loadSampleData() {
-    this.teamService.getMembers('sample');
+    this.teamService.getSampleData();
     this.taskService.loadSampleTasks();
   }
 

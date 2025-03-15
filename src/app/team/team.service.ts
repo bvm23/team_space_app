@@ -68,10 +68,12 @@ export class TeamService {
     this.save();
   }
 
-  getMembers(data: 'sample' | 'main' = 'main') {
-    if (data === 'sample') {
-      this.members = this.sampleData;
-    }
+  getMembers() {
+    return this.members;
+  }
+
+  getSampleData() {
+    this.members = this.sampleData;
     this.save();
     return this.members;
   }
@@ -85,7 +87,10 @@ export class TeamService {
     this.save();
   }
 
+  // on removing a member, first will reset their role for removing
+  // any manager or admin details assigned.
   removeMember(id: string) {
+    this.resetRole(id);
     this.members = this.members.filter((member) => member.id !== id);
     this.save();
   }
@@ -96,6 +101,26 @@ export class TeamService {
         member.role = givenRole;
       }
     });
+    this.save();
+  }
+
+  // for resetting the roles from 'admin' and 'manager' to 'member'.
+  // the manager details assigned to employees will be removed also.
+  resetRole(id: string) {
+    let user = this.getMember(id);
+    if (!user) {
+      return;
+    }
+    const currentRole = user.role;
+    if (currentRole === 'manager') {
+      this.members
+        .filter((m) => m.manager?.id === user.id)
+        .map((m) => {
+          m.manager = undefined;
+          m.haveManager = false;
+        });
+    }
+    user.role = 'member';
     this.save();
   }
 

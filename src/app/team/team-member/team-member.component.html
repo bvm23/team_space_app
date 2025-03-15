@@ -39,8 +39,15 @@
   class="menu"
   (click)="closeMenu()"
 >
+  @if (data.role==="admin") {
+  <li (click)="onResetRole()">Reset Role</li>
+  }@else if (data.role==="manager") {
+  <li (click)="onMakeManager()">Modify Manager</li>
+  <li (click)="onResetRole()">Reset Role</li>
+  }@else {
   <li (click)="onChangeRole('admin')">Make Admin</li>
   <li (click)="onMakeManager()">Make Manager</li>
+  }
   <li (click)="onRemove()">Remove Member</li>
 </ul>
 }

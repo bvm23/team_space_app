@@ -60,11 +60,19 @@ export class NewManagerComponent implements OnInit {
   }
 
   setManager() {
-    this.peopleList = this.peopleList.map((member) => {
-      member.manager = member.haveManager ? this.user : undefined;
-      return member;
-    });
-    this.user.role = 'manager';
+    const selectedMembersCount = this.peopleList.filter(
+      (m) => m.haveManager
+    ).length;
+    if (selectedMembersCount > 0) {
+      this.peopleList = this.peopleList.map((member) => {
+        member.manager = member.haveManager ? this.user : undefined;
+        return member;
+      });
+      this.user.role = 'manager';
+    } else {
+      this.teamService.resetRole(this.userId);
+    }
+    this.teamService.save();
   }
 
   ngOnInit() {

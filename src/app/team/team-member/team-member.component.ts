@@ -74,6 +74,10 @@ export class TeamMemberComponent {
     this.teamService.changeRole(this.data.id, enteredRole);
   }
 
+  onResetRole() {
+    this.teamService.resetRole(this.data.id);
+  }
+
   onMakeManager() {
     this.makeManager.emit();
   }
