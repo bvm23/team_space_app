@@ -5,7 +5,9 @@ import { Task } from './task/task.model';
   providedIn: 'root',
 })
 export class TaskService {
-  tasks: Task[] = [
+  private storageId = 'tasks';
+  private tasks!: Task[];
+  sampleData: Task[] = [
     {
       id: '1712345678001',
       title: 'Fix login bug',
@@ -138,15 +140,36 @@ export class TaskService {
     },
   ];
 
+  constructor() {
+    const existingData = localStorage.getItem(this.storageId);
+    if (existingData) {
+      this.tasks = JSON.parse(existingData);
+    } else {
+      this.tasks = [];
+    }
+    this.save();
+  }
+
   getUserTasks(id: string) {
     return this.tasks.filter((task) => task.owner.id === id);
   }
 
-  getAllTasks() {
-    return this.tasks;
+  loadSampleTasks() {
+    this.tasks = this.sampleData;
+    this.save();
   }
 
   addTask(newTask: Task) {
     this.tasks.push(newTask);
+    this.save();
+  }
+
+  removeUserTasks(id: string) {
+    this.tasks = this.tasks.filter((task) => task.owner.id !== id);
+    this.save();
+  }
+
+  save() {
+    localStorage.setItem(this.storageId, JSON.stringify(this.tasks));
   }
 }

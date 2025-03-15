@@ -4,6 +4,7 @@ import { NewMemberComponent } from '../new-member/new-member.component';
 import { Member } from '../team-member/team-member.model';
 import { TeamService } from '../team.service';
 import { NewManagerComponent } from '../new-manager/new-manager.component';
+import { TaskService } from '../../tasks/task.service';
 
 @Component({
   selector: 'app-team-dashboard',
@@ -16,7 +17,10 @@ export class TeamDashboardComponent {
   isAddingMember = false;
   isMakingManager = false;
 
-  constructor(private teamService: TeamService) {}
+  constructor(
+    private teamService: TeamService,
+    private taskService: TaskService
+  ) {}
 
   get members() {
     return this.teamService.getMembers();
@@ -24,6 +28,7 @@ export class TeamDashboardComponent {
 
   loadSampleData() {
     this.teamService.getMembers('sample');
+    this.taskService.loadSampleTasks();
   }
 
   openForm() {

@@ -11,6 +11,7 @@ import {
 import { Member, Role } from './team-member.model';
 import { TeamService } from '../team.service';
 import { NewManagerComponent } from '../new-manager/new-manager.component';
+import { TaskService } from '../../tasks/task.service';
 
 @Component({
   selector: 'app-team-member',
@@ -27,7 +28,11 @@ export class TeamMemberComponent {
   @Output() selectedMemberIdChange = new EventEmitter<string>();
   @Output() makeManager = new EventEmitter();
 
-  constructor(private el: ElementRef, private teamService: TeamService) {}
+  constructor(
+    private el: ElementRef,
+    private teamService: TeamService,
+    private taskService: TaskService
+  ) {}
 
   menuCardPosition = { left: '0px', top: '0px' };
 
@@ -62,6 +67,7 @@ export class TeamMemberComponent {
 
   onRemove() {
     this.teamService.removeMember(this.data.id);
+    this.taskService.removeUserTasks(this.data.id);
   }
 
   onChangeRole(enteredRole: Role) {

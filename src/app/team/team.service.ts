@@ -65,6 +65,7 @@ export class TeamService {
     } else {
       this.members = [];
     }
+    this.save();
   }
 
   getMembers(data: 'sample' | 'main' = 'main') {

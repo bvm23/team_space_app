@@ -38,6 +38,7 @@ export class TaskComponent implements OnInit {
         completed: 'pending',
       }[selectedTask!.status] as 'pending' | 'in-progress' | 'completed';
     }
+    this.taskService.save();
   }
 
   onAdd() {
