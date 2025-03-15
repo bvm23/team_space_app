@@ -14,6 +14,7 @@ export class NewMemberComponent {
 
   enteredName = '';
   enteredEmail = '';
+  enteredAvatar = '';
 
   constructor(private teamService: TeamService) {}
 
@@ -21,16 +22,22 @@ export class NewMemberComponent {
     this.close.emit();
   }
 
+  selectAvatar(event: MouseEvent, value: 'm' | 'f') {
+    event.preventDefault();
+    this.enteredAvatar = value;
+  }
+
   onSubmit() {
-    if (this.enteredEmail && this.enteredName) {
+    if (this.enteredEmail && this.enteredName && this.enteredAvatar) {
       let newMember: Member = {
         id: Math.random().toString(),
         name: this.enteredName,
         email: this.enteredEmail,
-        image: 'm-avatar.svg',
+        image: `${this.enteredAvatar}-avatar.svg`,
         role: 'member',
         haveManager: false,
       };
+
       this.teamService.addMember(newMember);
       this.onClose();
     }

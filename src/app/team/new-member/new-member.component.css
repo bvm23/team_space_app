@@ -72,6 +72,14 @@ form input {
   outline: none;
 }
 
+form input[type="image"]:first-child {
+  margin-right: 1rem;
+}
+
+.selected {
+  background-color: #8ef38e;
+}
+
 .actions button {
   width: 100%;
   padding: 1rem;

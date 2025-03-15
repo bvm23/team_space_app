@@ -1,6 +1,6 @@
 .dashboard-container {
   width: 95%;
+  height: 100vh;
   margin: auto;
   box-sizing: border-box;
-  overflow: hidden;
 }

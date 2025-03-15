@@ -26,6 +26,7 @@
           placeholder="name"
           [(ngModel)]="enteredName"
           name="name"
+          autocomplete="off"
         />
       </p>
       <p>
@@ -35,6 +36,32 @@
           placeholder="email"
           [(ngModel)]="enteredEmail"
           name="email"
+          autocomplete="off"
+        />
+      </p>
+      <p>
+        <input
+          type="image"
+          id="m"
+          src="m-avatar.svg"
+          alt="avatar"
+          width="90px"
+          height="90px"
+          name="m"
+          value="m"
+          [class.selected]="enteredAvatar === 'm'"
+          (click)="selectAvatar($event, 'm')"
+        />
+        <input
+          type="image"
+          id="f"
+          src="f-avatar.svg"
+          alt="avatar"
+          width="90px"
+          height="90px"
+          name="f"
+          [class.selected]="enteredAvatar === 'f'"
+          (click)="selectAvatar($event, 'f')"
         />
       </p>
       <p class="actions">
