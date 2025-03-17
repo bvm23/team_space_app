@@ -96,7 +96,7 @@
   }
 
   .empty-msg {
-    font-size: 1rem;
+    font-size: 1.4rem;
     text-transform: capitalize;
     grid-column: none;
     text-align: center;

@@ -14,3 +14,24 @@ h1 {
   text-align: center;
   padding-top: 8rem;
 }
+
+@media only screen and (max-width: 768px) {
+  p {
+    width: 100%;
+    padding: 1.2rem;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+  }
+
+  h1 {
+    font-size: 1.4rem;
+    text-transform: capitalize;
+    text-align: center;
+    position: fixed;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}

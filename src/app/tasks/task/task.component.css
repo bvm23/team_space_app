@@ -164,3 +164,9 @@ section:hover {
     font-weight: bold;
   }
 }
+
+@media only screen and (max-width: 768px) {
+  .content ul {
+    gap: 12px;
+  }
+}

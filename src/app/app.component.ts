@@ -22,12 +22,13 @@ export class AppComponent {
   reloaded: { mobile: boolean; desktop: boolean };
 
   constructor() {
+    let currentMode = localStorage.getItem('mode');
+    this.mode = currentMode ? (currentMode as 'team' | 'tasks') : 'team';
+
     let reloadData = localStorage.getItem('reload');
-    if (reloadData) {
-      this.reloaded = JSON.parse(reloadData);
-    } else {
-      this.reloaded = { mobile: false, desktop: false };
-    }
+    this.reloaded = reloadData
+      ? JSON.parse(reloadData)
+      : { mobile: false, desktop: false };
   }
 
   onDebounce = debounce(this.onResize, 500);
@@ -49,5 +50,6 @@ export class AppComponent {
   }
   changeMode() {
     this.mode = this.mode === 'team' ? 'tasks' : 'team';
+    localStorage.setItem('mode', this.mode);
   }
 }
