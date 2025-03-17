@@ -15,7 +15,8 @@ dialog {
   margin: auto;
   top: 5rem;
   border: 0;
-  display: grid;
+  display: flex;
+  flex-direction: column;
   gap: 12px;
   z-index: 8;
 }
@@ -54,11 +55,13 @@ p {
 .middle p {
   font-size: 1.2rem;
   text-align: left;
+  display: inline;
 }
 
 .middle p span {
   color: #0da00d;
   margin-left: 1ch;
+  display: inline;
 }
 
 form {
@@ -134,4 +137,76 @@ form input[type="text"] {
 .actions button[type="button"] {
   color: #000;
   background: transparent;
+}
+
+@media only screen and (max-width: 768px) {
+  dialog {
+    position: fixed;
+    width: 92%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    gap: unset;
+  }
+
+  .top {
+    padding: 1rem;
+  }
+
+  .middle {
+    padding: 0.4rem 1.2rem;
+    gap: 0.2rem;
+    margin-bottom: unset;
+  }
+
+  .middle h1 {
+    font-size: 1.4rem;
+  }
+
+  .middle p {
+    font-size: 0.7rem;
+  }
+
+  form {
+    gap: 1rem;
+    padding: 0.8rem 0;
+  }
+
+  form input[type="text"] {
+    padding: 0.6rem 1rem;
+    border: 0;
+    border: 1px solid #c4c2c2;
+    font-size: 1rem;
+    outline: none;
+  }
+
+  .list-container {
+    margin-bottom: 0.4rem;
+    max-height: 12rem;
+  }
+
+  .member {
+    height: 3rem;
+    gap: 1.2rem;
+  }
+
+  .member input[type="checkbox"] {
+    width: 1.6rem;
+    height: 1.6rem;
+  }
+
+  .member h3 {
+    font-size: 1rem;
+  }
+
+  .member img {
+    width: 2rem;
+    height: 2rem;
+  }
+
+  .actions button {
+    padding: 0.6rem;
+    font-size: 1rem;
+    border: 0;
+  }
 }
