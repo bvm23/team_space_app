@@ -13,3 +13,12 @@ button[type="button"] {
   box-shadow: rgba(82, 81, 81, 0.2) 0px 2px 8px 0px;
   z-index: 6;
 }
+
+@media only screen and (max-width: 768px) {
+  button[type="button"] {
+    bottom: 1rem;
+    left: 1rem;
+    font-size: 1rem;
+    padding: 0.4rem 1rem;
+  }
+}

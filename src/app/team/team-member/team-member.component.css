@@ -94,3 +94,49 @@
   height: 100vh;
   z-index: 4;
 }
+
+@media only screen and (max-width: 768px) {
+  :host {
+    padding: 0.6rem;
+    gap: 1rem;
+  }
+
+  .avatar {
+    width: 40px;
+    height: 40px;
+  }
+
+  .avatar img {
+    width: 40px;
+    height: 40px;
+  }
+
+  .info h2 {
+    font-size: 1.2rem;
+  }
+
+  .info .role {
+    font-size: 0.8rem;
+  }
+
+  .menu-btn svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .menu {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 0.6rem 0;
+    border-radius: 0;
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
+  }
+
+  .menu li {
+    padding: 0.4rem 0;
+    text-align: center;
+  }
+}

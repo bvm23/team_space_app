@@ -4,3 +4,9 @@
   margin: auto;
   box-sizing: border-box;
 }
+
+@media only screen and (max-width: 768px) {
+  .dashboard-container {
+    width: 100%;
+  }
+}

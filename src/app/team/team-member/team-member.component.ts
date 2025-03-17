@@ -35,7 +35,7 @@ export class TeamMemberComponent {
   ) {}
 
   menuCardPosition = { left: '0px', top: '0px' };
-
+  screenWidth = window.innerWidth;
   menuOpened = false;
 
   onMenuClick() {
