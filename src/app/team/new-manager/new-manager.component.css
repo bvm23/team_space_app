@@ -139,6 +139,78 @@ form input[type="text"] {
   background: transparent;
 }
 
+@media only screen and (min-width: 769px) and (max-width: 1024px) {
+  dialog {
+    position: fixed;
+    width: 60%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    gap: unset;
+  }
+
+  .top {
+    padding: 1rem;
+  }
+
+  .middle {
+    padding: 0.4rem 3rem;
+    gap: 0.2rem;
+    margin-bottom: unset;
+  }
+
+  .middle h1 {
+    font-size: 1.6rem;
+  }
+
+  .middle p {
+    font-size: 0.8rem;
+  }
+
+  form {
+    gap: 0.6rem;
+    padding: 0.4rem 0;
+  }
+
+  form input[type="text"] {
+    padding: 0.6rem 1rem;
+    border: 0;
+    border: 1px solid #c4c2c2;
+    font-size: 1rem;
+    outline: none;
+  }
+
+  .list-container {
+    margin-bottom: 0.6rem;
+    max-height: 12rem;
+  }
+
+  .member {
+    height: 3rem;
+    gap: 1.2rem;
+  }
+
+  .member input[type="checkbox"] {
+    width: 1.8rem;
+    height: 1.8rem;
+  }
+
+  .member h3 {
+    font-size: 1rem;
+  }
+
+  .member img {
+    width: 2.2rem;
+    height: 2.2rem;
+  }
+
+  .actions button {
+    padding: 0.6rem;
+    font-size: 1rem;
+    border: 0;
+  }
+}
+
 @media only screen and (max-width: 768px) {
   dialog {
     position: fixed;

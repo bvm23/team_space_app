@@ -15,6 +15,27 @@ h1 {
   padding-top: 8rem;
 }
 
+@media only screen and (min-width: 769px) and (max-width: 1024px) {
+  p {
+    width: 100%;
+    padding: 1.2rem;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.4rem;
+  }
+
+  h1 {
+    font-size: 2rem;
+    text-transform: capitalize;
+    text-align: center;
+    position: fixed;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
 @media only screen and (max-width: 768px) {
   p {
     width: 100%;

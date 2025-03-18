@@ -19,7 +19,7 @@ import debounce from 'debounce';
 })
 export class AppComponent {
   mode: 'team' | 'tasks' = 'team';
-  reloaded: { mobile: boolean; desktop: boolean };
+  reloaded: { mobile: boolean; tablet: boolean; desktop: boolean };
 
   constructor() {
     let currentMode = localStorage.getItem('mode');
@@ -28,7 +28,7 @@ export class AppComponent {
     let reloadData = localStorage.getItem('reload');
     this.reloaded = reloadData
       ? JSON.parse(reloadData)
-      : { mobile: false, desktop: false };
+      : { mobile: false, tablet: false, desktop: false };
   }
 
   onDebounce = debounce(this.onResize, 500);
@@ -38,12 +38,21 @@ export class AppComponent {
     if (screenWidth <= 768 && !this.reloaded.mobile) {
       this.reloaded.mobile = true;
       this.reloaded.desktop = false;
+      this.reloaded.tablet = false;
       localStorage.setItem('reload', JSON.stringify(this.reloaded));
       location.reload();
     }
-    if (screenWidth > 768 && !this.reloaded.desktop) {
+    if (screenWidth > 768 && screenWidth <= 1024 && !this.reloaded.tablet) {
+      this.reloaded.tablet = true;
+      this.reloaded.mobile = false;
+      this.reloaded.desktop = false;
+      localStorage.setItem('reload', JSON.stringify(this.reloaded));
+      location.reload();
+    }
+    if (screenWidth > 1024 && !this.reloaded.desktop) {
       this.reloaded.desktop = true;
       this.reloaded.mobile = false;
+      this.reloaded.tablet = false;
       localStorage.setItem('reload', JSON.stringify(this.reloaded));
       location.reload();
     }

@@ -95,6 +95,41 @@
   z-index: 4;
 }
 
+@media only screen and (min-width: 769px) and (max-width: 1024px) {
+  .avatar {
+    width: 56px;
+    height: 56px;
+  }
+
+  .avatar img {
+    width: 60px;
+    height: 60px;
+  }
+
+  .info h2 {
+    font-size: 1.4rem;
+  }
+
+  .info .role {
+    font-size: 1rem;
+  }
+
+  .menu {
+    position: fixed;
+    left: 50%;
+    top: 93%;
+    transform: translate(-50%, -50%);
+    width: 36%;
+    padding: 0.6rem 0;
+    border-radius: 12px;
+  }
+
+  .menu li {
+    padding: 0.4rem 0;
+    text-align: center;
+  }
+}
+
 @media only screen and (max-width: 768px) {
   :host {
     padding: 0.6rem;

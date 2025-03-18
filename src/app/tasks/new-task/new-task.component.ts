@@ -14,6 +14,7 @@ export class NewTaskComponent {
   @Input({ required: true }) user!: Member;
   @Output() close = new EventEmitter();
   enteredTask = '';
+  screenWidth = window.innerWidth;
 
   constructor(private taskService: TaskService) {}
 

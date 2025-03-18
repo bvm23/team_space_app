@@ -3,6 +3,8 @@
   <form (ngSubmit)="onSubmit()">
     <input type="text" name="task" id="task" [(ngModel)]="enteredTask" />
     <button type="submit">save</button>
+    @if(screenWidth>768){
     <button type="button" (click)="onCancel()">cancel</button>
+    }
   </form>
 </dialog>
