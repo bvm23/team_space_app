@@ -107,6 +107,7 @@ button[type="button"] {
     text-align: left;
     border: 1px #808080 solid;
     border-radius: 0.4rem;
+    width: 100%;
   }
 
   button[type="submit"] {
@@ -114,5 +115,9 @@ button[type="button"] {
     font-size: 1rem;
     text-transform: capitalize;
     border: 0;
+  }
+
+  button[type="button"] {
+    display: none;
   }
 }

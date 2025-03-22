@@ -93,13 +93,19 @@ header p {
   flex-direction: row;
   align-items: center;
   gap: 16px;
-  cursor: pointer;
 }
 
 .status-text {
-  width: 90%;
+  width: 80%;
   text-transform: capitalize;
   user-select: none;
+  cursor: pointer;
+}
+
+.completed-status-text {
+  text-decoration: line-through;
+  font-style: italic;
+  color: grey;
 }
 
 .status {
@@ -125,6 +131,15 @@ header p {
   color: #a9a9a9;
   font-size: 1.6rem;
   text-transform: uppercase;
+}
+
+.delete-btn {
+  display: flex;
+  cursor: pointer;
+}
+
+.delete-btn svg {
+  fill: rgb(97, 97, 97);
 }
 
 .overview {

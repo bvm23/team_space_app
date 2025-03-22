@@ -164,6 +164,11 @@ export class TaskService {
     this.save();
   }
 
+  removeTask(id: string) {
+    this.tasks = this.tasks.filter((task) => task.id !== id);
+    this.save();
+  }
+
   removeUserTasks(id: string) {
     this.tasks = this.tasks.filter((task) => task.owner.id !== id);
     this.save();
