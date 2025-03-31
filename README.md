@@ -17,8 +17,4 @@ Once the server is running, open your browser and navigate to `http://localhost:
 
 ## Screenshots
 
-![home page](public/home.png)
-
-![tasks page](public/tasks.png)
-
-![manager page](public/manager.png)
+![home page](public/ss.jpg)
